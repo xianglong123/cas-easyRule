@@ -52,9 +52,10 @@ public class FireTest {
                 .name("weather rule")
                 .description("if it rains then take an umbrella")
                 .when("baseBo.behaviorData['name'] == 'xl'")
-                .then("System.out.println(\"It rains, take an umbrella!222222222222\");");
+                .then("cu.action(baseBo);cu.action(baseBo);");
         Facts facts = new Facts();
         facts.put("baseBo", getObject());
+        facts.put("cu", customRuleService);
         // define rules
         Rules rules = new Rules();
 //        UnitRuleGroup ruleGroup = new UnitRuleGroup("aa", "2222");

@@ -2,7 +2,9 @@ package com.cas.test;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cas.ApplicationTest;
+import com.cas.mapper.CasRuleInfoMapper;
 import com.cas.mapper.UserMapper;
+import com.cas.pojo.CasRuleInfo;
 import com.cas.pojo.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,6 +28,21 @@ public class MybatisPlusTest {
 
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private CasRuleInfoMapper casRuleInfoMapper;
+
+
+    /**
+     * mybatis-plus查询操作【单表】
+     */
+    @Test
+    public void testSelect2() {
+        System.out.println(("----- selectAll method test ------"));
+        CasRuleInfo user = casRuleInfoMapper.selectById(4L);
+        Assert.assertNotNull(user);
+        System.out.println(user.toString());
+    }
 
     /**
      * mybatis-plus查询操作【单表】
