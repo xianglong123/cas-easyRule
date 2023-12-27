@@ -1,8 +1,6 @@
 package com.cas.bo;
 
-import com.cas.service.RuleService;
-
-import java.util.Map;
+import java.util.List;
 
 /**
  * @description:
@@ -11,13 +9,14 @@ import java.util.Map;
  **/
 public class RuleCacheBO {
 
-    private Map<String, RuleService> mapCache;
+    private List<RuleMVEL> rm;
 
-    public Map<String, RuleService> getMapCache() {
-        return mapCache;
+    public List<RuleMVEL> getRm() {
+        return rm;
     }
 
-    public void setMapCache(Map<String, RuleService> mapCache) {
-        this.mapCache = mapCache;
+    public void setRm(List<RuleMVEL> rm) {
+        this.rm = rm;
     }
+
 }

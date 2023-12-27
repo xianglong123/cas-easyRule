@@ -1,11 +1,15 @@
 package com.cas.pojo;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @description:
@@ -18,16 +22,25 @@ public class CasRuleInfo {
     @TableId(type = IdType.AUTO)
     private String id;
     private String name;
+    private Integer priority;
     private String description;
-    private String condition;
-    private String action;
+    private String rCondition;
+    private String rAction;
     private String serviceName;
     private String serviceAlias;
-    private LocalDate createDate;
-    private LocalDateTime createTime;
-    private LocalDateTime updateTime;
+
+    private Date createDate;
+    private Date createTime;
+    private Date updateTime;
 
 
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
 
     public String getServiceAlias() {
         return serviceAlias;
@@ -69,43 +82,43 @@ public class CasRuleInfo {
         this.description = description;
     }
 
-    public String getCondition() {
-        return condition;
+    public String getrCondition() {
+        return rCondition;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setrCondition(String rCondition) {
+        this.rCondition = rCondition;
     }
 
-    public String getAction() {
-        return action;
+    public String getrAction() {
+        return rAction;
     }
 
-    public void setAction(String action) {
-        this.action = action;
+    public void setrAction(String rAction) {
+        this.rAction = rAction;
     }
 
-    public LocalDate getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDate createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
-    public LocalDateTime getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public LocalDateTime getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(LocalDateTime updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 }

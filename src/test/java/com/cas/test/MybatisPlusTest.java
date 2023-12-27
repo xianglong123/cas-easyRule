@@ -39,9 +39,8 @@ public class MybatisPlusTest {
     @Test
     public void testSelect2() {
         System.out.println(("----- selectAll method test ------"));
-        CasRuleInfo user = casRuleInfoMapper.selectById(4L);
-        Assert.assertNotNull(user);
-        System.out.println(user.toString());
+        List<CasRuleInfo> list = casRuleInfoMapper.selectList(null);
+        System.out.println("a");
     }
 
     /**

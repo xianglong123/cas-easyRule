@@ -30,12 +30,4 @@ public class MyBatisPlusConfig {
         return interceptor;
     }
 
-    @Bean
-    public WallConfig wallConfig(){
-        WallConfig config =new WallConfig();
-        config.setMultiStatementAllow(true);//允许一次执行多条语句
-        config.setNoneBaseStatementAllow(true);//允许非基本语句的其他语句
-        return config;
-    }
-
 }

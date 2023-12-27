@@ -2,6 +2,8 @@ package com.cas.test;
 
 import cn.hutool.extra.spring.SpringUtil;
 import com.cas.RuleApplication;
+import com.cas.bo.RuleCacheBO;
+import com.cas.bo.RuleMVEL;
 import com.cas.bo.rule.RuleBO;
 import com.cas.bo.rule.SimpleRuleBO;
 import com.cas.service.RuleService;
@@ -13,6 +15,7 @@ import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.api.RulesEngine;
 import org.jeasy.rules.core.DefaultRulesEngine;
 import org.jeasy.rules.mvel.MVELRule;
+import org.jeasy.rules.support.composite.CompositeRule;
 import org.jeasy.rules.support.composite.ConditionalRuleGroup;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +24,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,6 +35,38 @@ import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = RuleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SimpleTest {
+
+    @Resource
+    private RuleCacheBO ruleCacheBO;
+
+    /**
+     * 通过实例加载数据
+     */
+    @Test
+    public void test2() {
+        Facts facts = new Facts();
+        facts.put("bo", getObject());
+        // define rules
+        Rules rules = new Rules();
+        rules.register(groupRule(ruleCacheBO.getRm(), facts));
+        RulesEngine rulesEngine = new DefaultRulesEngine();
+        rulesEngine.fire(rules, facts);
+    }
+
+
+    private CompositeRule groupRule(List<RuleMVEL> rms, Facts facts) {
+        ConditionalRuleGroup ruleGroup = new ConditionalRuleGroup("aa", "2222");
+        for (RuleMVEL rm : rms) {
+            facts.put(rm.getServiceAlias(), rm.getRuleService());
+            ruleGroup.addRule(new MVELRule()
+                    .name(rm.getName())
+                    .priority(rm.getPriority())
+                    .description(rm.getDescription())
+                    .when(rm.getrCondition())
+                    .then(rm.getServiceAlias() + "." + rm.getrAction()));
+        }
+        return ruleGroup;
+    }
 
     @Test
     public void test() {
