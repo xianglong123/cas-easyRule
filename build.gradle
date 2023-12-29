@@ -22,10 +22,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation("cn.hutool:hutool-all:5.7.7")
 
-    testImplementation('org.jeasy:easy-rules-core:4.1.0')
-    testImplementation('org.jeasy:easy-rules-mvel:4.1.0')
-    testImplementation('org.jeasy:easy-rules-support:4.1.0')
-    testImplementation('org.jeasy:easy-rules-spel:4.1.0')
+    implementation('org.jeasy:easy-rules-core:4.1.0')
+    implementation('org.jeasy:easy-rules-mvel:4.1.0')
+    implementation('org.jeasy:easy-rules-support:4.1.0')
+    implementation('org.jeasy:easy-rules-spel:4.1.0')
 
     implementation 'com.alibaba:druid-spring-boot-starter:1.1.10'
     implementation 'mysql:mysql-connector-java:8.0.13'

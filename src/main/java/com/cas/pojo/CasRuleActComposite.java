@@ -1,26 +1,20 @@
 package com.cas.pojo;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * @description:
  * @author: xianglong
  * @create: 2023-12-26 21:40
  **/
-@TableName("cas_rule_info")
-public class CasRuleInfo {
+@TableName("cas_rule_act_composite")
+public class CasRuleActComposite {
 
     @TableId(type = IdType.AUTO)
     private String id;
+    private String actId;
     private String name;
     private Integer priority;
     private String description;
@@ -29,10 +23,13 @@ public class CasRuleInfo {
     private String serviceName;
     private String serviceAlias;
 
-    private Date createDate;
-    private Date createTime;
-    private Date updateTime;
+    public String getActId() {
+        return actId;
+    }
 
+    public void setActId(String actId) {
+        this.actId = actId;
+    }
 
     public Integer getPriority() {
         return priority;
@@ -98,27 +95,4 @@ public class CasRuleInfo {
         this.rAction = rAction;
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }

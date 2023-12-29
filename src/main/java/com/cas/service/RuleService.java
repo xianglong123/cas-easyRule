@@ -1,6 +1,6 @@
 package com.cas.service;
 
-import com.cas.bo.rule.RuleBO;
+import com.cas.bo.RuleBaseBO;
 
 /**
  * @description: 服务顶级类
@@ -9,6 +9,6 @@ import com.cas.bo.rule.RuleBO;
  **/
 public interface RuleService {
 
-    void execute(RuleBO bo);
+    void execute(RuleBaseBO bo);
 
 }

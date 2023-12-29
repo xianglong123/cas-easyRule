@@ -9,14 +9,13 @@ import java.util.List;
  **/
 public class RuleCacheBO {
 
-    private List<RuleMVEL> rm;
+    private List<RuleGroup> rg;
 
-    public List<RuleMVEL> getRm() {
-        return rm;
+    public List<RuleGroup> getRg() {
+        return rg;
     }
 
-    public void setRm(List<RuleMVEL> rm) {
-        this.rm = rm;
+    public void setRg(List<RuleGroup> rg) {
+        this.rg = rg;
     }
-
 }

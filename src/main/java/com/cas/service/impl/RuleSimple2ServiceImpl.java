@@ -1,7 +1,6 @@
 package com.cas.service.impl;
 
-import com.cas.bo.rule.RuleBO;
-import com.cas.bo.rule.SimpleRuleBO;
+import com.cas.bo.RuleBaseBO;
 import com.cas.service.RuleService;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +13,7 @@ import org.springframework.stereotype.Service;
 public class RuleSimple2ServiceImpl implements RuleService {
 
     @Override
-    public void execute(RuleBO bo) {
-        SimpleRuleBO simpleRuleBO = (SimpleRuleBO) bo;
-        System.out.println("2222222手机号为 : " + simpleRuleBO.getMobileNo() + "   描述：" + simpleRuleBO.getDescription());
+    public void execute(RuleBaseBO bo) {
+        System.out.println("2222222手机号为 : " + bo.getMobileNo() + "   描述：" + bo.getActivityId());
     }
 }
